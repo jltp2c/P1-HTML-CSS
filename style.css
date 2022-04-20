@@ -1,0 +1,308 @@
+:root {
+  --color1: #ededed;
+  --color2: #e58de2;
+  --color3: #baa7e6;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+body {
+  background: url(./img/galaxy-11098.jpg) center/cover;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 400px;
+  min-height: 600px;
+}
+.card {
+    background : rgba(6, 6, 6, 0.501);
+    width: calc(100% - 50px);
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.442);
+    border-radius: 10px;
+    backdrop-filter: blur(5px) ;
+}
+
+.card:before{
+    content : "\2730";
+    position : absolute;
+    top : 14px;
+    right: 50px;
+    font-size: 2.4rem;
+}
+
+h1{
+    margin-bottom: 24px;
+    text-align: center;
+    position: relative;
+    
+}
+h1::after{
+    content:"";
+    position: absolute;
+    background: var(--color2);
+    height: 1px;
+    width: 100%;
+    bottom:-20px;
+    left:50%;
+    transform: translateX(-50%) scaleX(0);
+    animation: h1anime 3s ease-in-out forwards;
+}
+@keyframes h1anime{
+    100%{
+        transform :translateX(-50%) scaleX(1);
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+.polygon-container {
+    filter: drop-shadow(-1px 8px 10px var(--color2));
+    place-self: center;
+}
+.polygon{
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: linear-gradient(135deg,var(--color2) 0%, var(--color1) 100%);
+    height: 100px;
+    width: 100px;
+}
+
+.polygon:after{
+    content:"NTFY";
+    position: absolute;
+    color:var(--color1);
+    background: black;
+    top:50%;
+    left: 50%;
+    width: 60px;
+    padding: 10px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    box-shadow: 10px 10px 10px 0.6;
+}
+
+p{
+    line-height: 20px;
+    margin: 20px 0;
+    display: -webkit-box;
+    -webkit-box-orient : vertical;
+    -webkit-line-clamp : 4;
+    overflow: hidden;
+    text-align: center;
+}
+p::selection{
+    background: var(--color3);
+    color:black;
+}
+
+.checkbox-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 40px;
+    perspective: 100px;
+}
+input[type = "checkbox"]{
+    display: none;
+}
+input[type = "checkbox"]:checked+label{
+    background: var(--color2);
+    color: black;
+    transform: scale(1.4);
+}
+
+label{
+    cursor:pointer;
+    border: 1px solid var(--color1);
+    background:rgba(0, 0, 0, 0.456);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.5s;
+}
+label:first-of-type:hover{
+    animation:label1 1s infinite linear;
+}
+
+@keyframes label1 {
+    50%{
+        transform: scale(1.4);
+    }
+    100%{
+        transform : scale(1);
+    }
+}
+label:nth-child(4):hover{
+    animation:label2 3s infinite linear;
+}
+@keyframes label2 {
+    33%{
+        transform : translateZ(30px)
+    }
+    66%{
+        transform: translateZ(-40px)
+    }
+    100%{
+        transform: translateZ(0);
+    }
+}
+
+.e-mail {
+    margin: 20px;
+    text-align: center;
+
+}
+.e-mail input{
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 0.8rem;
+    color:var(--color1);
+    max-width: 400px;
+    width: 35%;
+    min-width: 200px;
+    transition: 0.5s;
+}
+
+input[type ="text"]:focus{
+    background: transparent;
+    border:1px solid #e58de2;
+}
+
+button{
+    cursor: pointer;
+    background: var(--color3);
+    border:none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 10px;
+    display: block;
+    margin:0 auto;
+    transition: 0.4s;
+}
+
+
+button:hover{
+    letter-spacing: 3px;   
+}
+button:active{
+    transform: scale(1.2);
+    background: #baa7e6;
+}
+
+button:hover + a, a:hover {  
+    transform: translateY(0);
+    opacity: 1;
+}
+
+a{
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    margin: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.7s;
+}
+a:visited{
+    color:none;
+}
+
+img{
+    height:40px;
+    position: absolute;
+    filter:drop-shadow(0px 20px 3px yellow);
+    z-index: -1;
+    animation: spaceship 20s infinite linear ;
+    overflow: hidden;
+}
+@keyframes spaceship {
+    0%{
+        top: 2%;
+        left :2%;
+        transform: rotate(90deg);
+    }
+    10%{
+        top: 2%;
+        left :20%;
+        transform: rotate(90deg);
+    }
+    20%{
+        top: 7%;
+        left :50%;
+        transform: rotate(90deg);
+    }
+    30%{
+        top: 10%;
+        left :60%;
+        transform: rotate(110deg);
+    }
+    40%{
+        top: 20%;
+        left :70%;
+        transform: rotate(130deg);
+    }
+    50%{
+        top: 40%;
+        left :90%;
+        transform: rotate(140deg);
+    }
+    60%{
+        top: 50%;
+        left :100%;
+        transform: rotate(150deg);
+    }
+    70%{
+        top: 70%;
+        left :90%;
+        transform: rotate(260deg);
+    }
+    80%{
+        top: 90%;
+        left :50%;
+        transform: rotate(280deg);
+    }
+    90%{
+        top: 70%;
+        left :20%;
+        transform: rotate(300deg);
+    }
+    100%{
+        top: 2%;
+        left :10%;
+        transform: rotate(310deg);
+    }
+}
+
+@media screen and (max-width : 450px)
+{
+    label{
+        font-size: 10px;
+    }
+    .polygon{
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        background: linear-gradient(135deg,var(--color2) 0%, var(--color1) 70%);
+        height: 70px;
+        width: 70px;
+    }
+    h1{
+        font-size: 20px;
+    }
+    .card:before{
+        font-size: 30px;
+    }
+    p{
+        font-size: 13px;
+    }
+}
+
